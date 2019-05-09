@@ -1,14 +1,23 @@
-def main():
-    i = 10
-    while True:
-        i += 1
-        str_2 = format(i, 'b')
-        str_8 = format(i, 'o')
-        str_10 = format(i, 'd')
+import time
 
-        if str_2 == str_2[::-1] and str_8 == str_8[::-1] and str_10 == str_10[::-1]:
-            print("10:{}, 2:{}, 8:{}".format(str_10, str_2, str_8))
-            break
+
+def main():
+    t1 = time.time()
+    i = 11
+    while True:
+        if format(i, 'd') != format(i, 'd')[::-1]:
+            i += 2
+            continue
+        if format(i, 'b') != format(i, 'b')[::-1]:
+            i += 2
+            continue
+        if format(i, 'o') != format(i, 'o')[::-1]:
+            i += 2
+            continue
+        print("Result-> 10:{}, 2:{}, 8:{}".format(format(i, 'd'), format(i, 'b'), format(i, 'o')))
+        break
+    t2 = time.time()
+    print('Elapse-> {}'.format(t2 - t1))
 
 
 if __name__ == '__main__':
